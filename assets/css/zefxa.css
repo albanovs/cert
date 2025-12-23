@@ -2730,10 +2730,10 @@ ul {
 
 .main-slider__title {
   position: relative;
-  font-size: 90px;
+  font-size: 60px;
   color: var(--zefxa-white);
   font-weight: 700;
-  line-height: 95px;
+  line-height: 85px;
   text-transform: capitalize;
   font-family: var(--zefxa-font-two);
   opacity: 0;
@@ -10239,18 +10239,33 @@ ul {
 
 .eac {
   background: url(../eac.png) no-repeat center center;
-  background-color: white;
-  width: 50px;
-  height: 50px;
+  /* background-color: white; */
+  width: 70px;
+  height: 70px;
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
+  position: absolute;
+  left: 800px;
+  top: 20px;
 }
 
 @media (max-width: 600px) {
   .eac{
     display: block;
   }
+}
+
+
+.whatsapp img{
+  width: 60px;
+  height: 60px;
+}
+.whatsapp{
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 999;
 }
 
 /*--------------------------------------------------------------
