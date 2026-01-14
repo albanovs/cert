@@ -1,0 +1,168 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.certificate {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.certificate__container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Навигация */
+.certificate__nav {
+  margin-bottom: 25px;
+}
+
+.certificate__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.08);
+  transition: all 0.3s ease;
+}
+
+.certificate__back:hover {
+  background: rgba(37, 99, 235, 0.15);
+  transform: translateX(-4px);
+}
+
+/* Основной блок */
+.certificate__box {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+}
+
+.certificate__title {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: #0f172a;
+}
+
+.certificate__subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 36px 0 14px;
+  color: #111827;
+}
+
+.certificate__text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #374151;
+  margin-bottom: 18px;
+}
+
+/* Список шагов */
+.certificate__steps {
+  margin: 20px 0 30px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.certificate__steps li {
+  position: relative;
+  padding-left: 44px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #374151;
+}
+
+.certificate__steps li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .certificate__box {
+    padding: 30px;
+  }
+
+  .certificate__title {
+    font-size: 28px;
+  }
+
+  .certificate__subtitle {
+    font-size: 20px;
+  }
+
+  .certificate__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate {
+    padding: 40px 15px;
+  }
+
+  .certificate__box {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .certificate__title {
+    font-size: 24px;
+  }
+}
+
+.certificate__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate__image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Планшеты */
+@media (max-width: 900px) {
+  .certificate__image img {
+    max-width: 320px;
+    margin-top: 20px;
+  }
+}
+
+/* Мобильные */
+@media (max-width: 480px) {
+  .certificate__image img {
+    max-width: 260px;
+    margin-top: 16px;
+    border-radius: 10px;
+  }
+}
