@@ -382,7 +382,7 @@
                             </div>
 
                             <p class="about-one__big-text">
-                                Помогаем быстро и безопасно получать необходимые сертификаты, декларации и
+                                Помогаем быстро и безопасно получить необходимые сертификаты, декларации и
                                 СГР.
                             </p>
 
@@ -629,7 +629,8 @@
                                     <span class="icon-document"></span>
                                 </div>
                                 <h3 class="process-one__title">Консультация</h3>
-                                <p class="process-one__text">Выбираем необходимый вид сертификата и анализируем
+                                <p class="process-one__text">Выбираем необходимый вид разрешительного документа и
+                                    анализируем
                                     документы.</p>
                                 <div class="process-one__count">1</div>
                             </div>
@@ -661,9 +662,9 @@
                                 <div class="process-one__single-bg"
                                     style="background-image: url(assets/images/resources/process-one-single-bg.jpg);">
                                 </div>
-                                <div class="process-one__icon">
+                                <!-- <div class="process-one__icon">
                                     <span class="icon-check"></span>
-                                </div>
+                                </div> -->
                                 <h3 class="process-one__title">Подготовка документов</h3>
                                 <p class="process-one__text">Составляем и подаем полный пакет документов в
                                     аккредитованные органы.</p>
@@ -682,8 +683,9 @@
                                 <div class="process-one__icon">
                                     <span class="icon-award"></span>
                                 </div>
-                                <h3 class="process-one__title">Получение сертификата</h3>
-                                <p class="process-one__text">Вы получаете готовый сертификат или СГР, подтверждающий
+                                <h3 class="process-one__title">Получение разрешительного документа</h3>
+                                <p class="process-one__text">Вы получаете готовый разрешительный документ,
+                                    подтверждающий
                                     соответствие продукции.</p>
                                 <div class="process-one__count">4</div>
                             </div>
@@ -1001,15 +1003,83 @@
                 <div class="row">
                     <div class="cta-one__inner text-center">
                         <h3 class="cta-one__title">
-                            Свяжитесь с нами и получите консультацию уже сегодня
+                            Оставьте номер — получите консультацию уже сегодня
                         </h3>
+
                         <div class="cta-one__btn-box">
-                            <a href="https://wa.me/+996553010821" class="cta-one__btn thm-btn">Получить консультацию</a>
+                            <input type="text" id="name" class="cta-one__input" placeholder="Ваше имя">
+                            <input type="tel" id="phone" class="cta-one__input" placeholder="Ваш номер телефона"
+                                oninput="validatePhoneInput(this)">
+
+                            <button onclick="sendToTelegram()">Заказать звонок</button>
+                            <p class="form-error" id="formError"></p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
+
+        <script>
+            function validatePhoneInput(input) {
+                input.value = input.value.replace(/[^0-9+\-\s()]/g, '');
+            }
+            function sendToTelegram() {
+                const nameInput = document.getElementById('name');
+                const phoneInput = document.getElementById('phone');
+                const errorText = document.getElementById('formError');
+
+                const name = nameInput.value.trim();
+                const phone = phoneInput.value.trim();
+
+                errorText.textContent = '';
+                nameInput.classList.remove('error');
+                phoneInput.classList.remove('error');
+
+                if (name.length < 2) {
+                    errorText.textContent = 'Пожалуйста, введите имя';
+                    nameInput.classList.add('error');
+                    return;
+                }
+
+                const phoneRegex = /^[0-9+\-\s()]{7,20}$/;
+
+                if (!phoneRegex.test(phone)) {
+                    errorText.textContent = 'Введите корректный номер телефона';
+                    phoneInput.classList.add('error');
+                    return;
+                }
+
+                const token = '8388498750:AAE1khW-_gI7Z7ZqgOCowj79vHpufyLdGuo';
+                const chatId = '-5141919177';
+
+                const message = `
+                                  📞 Заявка на консультацию
+                                  👤 Имя: ${name}
+                                  📱 Телефон: ${phone}
+                                  `;
+
+                fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                    .then(response => {
+                        if (!response.ok) throw new Error();
+                        errorText.style.color = 'green';
+                        errorText.textContent = 'Заявка успешно отправлена!';
+                        nameInput.value = '';
+                        phoneInput.value = '';
+                    })
+                    .catch(() => {
+                        errorText.textContent = 'Ошибка отправки. Попробуйте позже';
+                    });
+            }
+        </script>
+
 
         <footer id="contact" class="site-footer">
             <div class="site-footer__bg" style="background-image: url(assets/images/backgrounds/site-footer-bg.jpg);">
@@ -1107,7 +1177,7 @@
                         <div class="col-xl-12 text-center">
                             <div class="site-footer__bottom-inner">
                                 <p class="site-footer__bottom-text">
-                                    © 2025 Все права защищены | Разработано <a
+                                    © 2026 Все права защищены | Разработано <a
                                         href="https://wa.me/+996500991414">albvnovs</a>
                                 </p>
                             </div>
