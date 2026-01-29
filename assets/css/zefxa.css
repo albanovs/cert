@@ -10311,6 +10311,34 @@ ul {
   z-index: 999;
 }
 
+.telegram {
+  position: fixed;
+  left: 25px;
+  bottom: 90px;
+  z-index: 999;
+}
+
+
+@media (max-width: 600px) {
+  .whatsapp img {
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp {
+    left: 10px;
+    bottom: 20px;
+  }
+  .telegram {
+    left: 15px;
+    bottom: 80px;
+  }
+}
+
+.telegram img {
+  width: 50px;
+  height: 50px;
+}
+
 .cta-one__input {
   border: 1px solid #ccc;
   padding: 12px;
